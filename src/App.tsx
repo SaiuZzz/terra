@@ -49,32 +49,6 @@ const trails: Trail[] = [
     circle: 'kakiwin',
     photo: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=500&fit=crop&auto=format',
   },
-  {
-    id: 3,
-    name: 'Cima del Volcán',
-    tag: 'Alta Montaña',
-    difficulty: 'Extremo',
-    distance: '22 km · 10 h',
-    duration: '2.400 m elevación',
-    description:
-      'Ascenso al cráter con vistas de 360°. Solo para excursionistas experimentados. Amanecer desde la cima.',
-    highlights: ['Cráter volcánico', 'Vista 360°', 'Amanecer', 'Guía especializado'],
-    circle: 'volcano',
-    photo: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=500&fit=crop&auto=format',
-  },
-  {
-    id: 4,
-    name: 'Valle Dorado',
-    tag: 'Familia',
-    difficulty: 'Fácil',
-    distance: '6 km · 2 h',
-    duration: '90 m elevación',
-    description:
-      'Praderas con flores silvestres, riachuelos y zonas de picnic. Perfecta para familias y primeras caminatas.',
-    highlights: ['Apta para niños', 'Picnic', 'Flores silvestres', 'Puente colgante'],
-    circle: 'valley',
-    photo: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&h=500&fit=crop&auto=format',
-  },
 ]
 
 const diffColor: Record<string, string> = {
@@ -298,46 +272,24 @@ export default function App() {
       )}
 
       {/* HERO */}
-      <section id="inicio" className="relative" style={{ minHeight: '86vh' }}>
-        <img
-          src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=1600&h=900&fit=crop&auto=format"
-          alt="Senderismo en montaña"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: `linear-gradient(135deg, rgba(45,90,39,0.85) 0%, rgba(0,0,0,0.5) 100%)` }}
-        />
-        <div className="relative z-10 flex flex-col justify-center px-8 md:px-20" style={{ minHeight: '86vh' }}>
-          <h1
-            className="font-display font-bold text-white leading-none mb-5"
-            style={{ fontSize: 'clamp(2.6rem,7vw,5rem)' }}
-          >
-            Tu próxima <br />
-            <em style={{ color: '#e8a427', fontStyle: 'italic' }}>gran aventura</em>
-            <br />comienza aquí
-          </h1>
-          <p className="text-white/75 text-base max-w-md mb-8 leading-relaxed">
-            Rutas de sendero auténticas, guías expertos y paisajes que transforman. Tierra Aventura lleva 15 años diseñando experiencias únicas.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#rutas"
-              className="px-7 py-3 rounded-full font-semibold text-white"
-              style={{ background: TERRA }}
-            >
-              Ver Rutas
-            </a>
-            <a
-              href="#contacto"
-              className="px-7 py-3 rounded-full font-semibold text-white"
-              style={{ border: '1.5px solid rgba(255,255,255,0.5)' }}
-            >
-              Contactar
-            </a>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 h-20" style={{ background: `linear-gradient(to top, ${CREAM}, transparent)` }} />
+      <section id="inicio" className="py-24 px-6 md:px-20 text-center" style={{ background: GREEN }}>
+        <p className="text-xs uppercase tracking-widest font-semibold mb-4" style={{ color: '#e8a427' }}>Agencia de Viajes</p>
+        <h1
+          className="font-display font-bold text-white leading-tight mx-auto mb-5"
+          style={{ fontSize: 'clamp(2.4rem,6vw,4rem)', maxWidth: 640 }}
+        >
+          Descubre rutas de sendero únicas
+        </h1>
+        <p className="text-sm max-w-sm mx-auto mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
+          Guías expertos, paisajes auténticos y experiencias que transforman.
+        </p>
+        <a
+          href="#rutas"
+          className="inline-block px-8 py-3 rounded-full font-semibold text-white"
+          style={{ background: TERRA }}
+        >
+          Ver Rutas
+        </a>
       </section>
 
       {/* RUTAS */}
