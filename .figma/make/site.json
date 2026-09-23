@@ -1,4 +1,5 @@
 {
+  "title": "Terra",
   "description": "Explore travel agency services with a user-friendly interface, featuring a chat assistant and easy access to information about various travel routes.",
   "robots": {
     "index": false
