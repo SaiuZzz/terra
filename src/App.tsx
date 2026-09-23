@@ -246,9 +246,9 @@ export default function App() {
         style={{ background: 'rgba(244,239,234,0.93)', backdropFilter: 'blur(8px)', borderBottom: '1px solid #ddd4c8' }}
       >
         <div className="flex items-center gap-3">
-          <img src={logoImg} alt="Tierra Aventura" className="h-11 w-11 object-cover rounded-full" style={{ border: `2px solid ${GREEN}` }} />
+          <img src={logoImg} alt="Terra" className="h-11 w-11 object-cover rounded-full" style={{ border: `2px solid ${GREEN}` }} />
           <div>
-            <p className="font-display font-bold text-base leading-none" style={{ color: GREEN }}>Tierra Aventura</p>
+            <p className="font-display font-bold text-base leading-none" style={{ color: GREEN }}>Terra</p>
           </div>
         </div>
 
@@ -276,7 +276,6 @@ export default function App() {
 
       {/* HERO */}
       <section id="inicio" className="py-24 px-6 md:px-20 text-center" style={{ background: GREEN }}>
-        <p className="text-xs uppercase tracking-widest font-semibold mb-4" style={{ color: '#e8a427' }}>Agencia de Viajes</p>
         <h1
           className="font-display font-bold text-white leading-tight mx-auto mb-5"
           style={{ fontSize: 'clamp(2.4rem,6vw,4rem)', maxWidth: 640 }}
@@ -362,7 +361,7 @@ export default function App() {
           </div>
           <img
             src="https://images.unsplash.com/photo-1527301460062-0b9f5a0b96d5?w=700&h=500&fit=crop&auto=format"
-            alt="Guías de Tierra Aventura"
+            alt="Guías de Terra"
             className="w-full rounded-2xl object-cover"
             style={{ height: 340 }}
           />
@@ -399,10 +398,10 @@ export default function App() {
       <footer className="py-8 px-6 md:px-20" style={{ background: BLACK }}>
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <img src={logoImg} alt="Tierra Aventura" className="h-9 w-9 object-cover rounded-full" style={{ border: '1.5px solid rgba(255,255,255,0.3)' }} />
-            <p className="font-display font-bold text-white text-sm">Tierra Aventura</p>
+            <img src={logoImg} alt="Terra" className="h-9 w-9 object-cover rounded-full" style={{ border: '1.5px solid rgba(255,255,255,0.3)' }} />
+            <p className="font-display font-bold text-white text-sm">Terra</p>
           </div>
-          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>© 2026 Tierra Aventura · Todos los derechos reservados</p>
+          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>© 2026 Terra · Todos los derechos reservados</p>
           <div className="flex gap-5">
             {['Instagram', 'Facebook', 'WhatsApp'].map((s) => (
               <a key={s} href="#" className="text-xs hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.4)' }}>{s}</a>
