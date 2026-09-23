@@ -62,7 +62,11 @@ function CircleIcon({ type }: { type: Trail['circle'] }) {
   if (type === 'beach')
     return <img src={beachCircle} alt="Sendero Costero" className="w-full h-full object-cover" />
   if (type === 'kakiwin')
-    return <img src={kakiwinCircle} alt="Ruta Kakiwin" className="w-full h-full object-cover" />
+    return (
+      <div className="w-full h-full flex items-center justify-center overflow-hidden" style={{ background: '#111' }}>
+        <img src={kakiwinCircle} alt="Ruta Kakiwin" style={{ width: '130%', height: '130%', objectFit: 'cover', objectPosition: 'center' }} />
+      </div>
+    )
   if (type === 'volcano')
     return (
       <svg viewBox="0 0 200 200" className="w-full h-full" style={{ background: 'linear-gradient(160deg,#1a0800,#3d1500,#7a2a0a)' }}>
@@ -220,10 +224,10 @@ function ChatWidget() {
       <button
         onClick={() => setOpen((o) => !o)}
         className="rounded-full overflow-hidden shadow-xl transition-transform hover:scale-105 active:scale-95"
-        style={{ width: 64, height: 64, border: `3px solid ${GREEN}`, background: CREAM }}
+        style={{ width: 84, height: 84, border: `3px solid ${GREEN}`, background: CREAM }}
         aria-label="Chat de asistencia"
       >
-        <img src={mascotImg} alt="Asistente" className="w-full h-full object-contain" />
+        <img src={mascotImg} alt="Asistente" className="w-full h-full object-contain" style={{ transform: 'scale(1.15)', transformOrigin: 'center 60%' }} />
       </button>
     </div>
   )
