@@ -249,7 +249,6 @@ export default function App() {
           <img src={logoImg} alt="Tierra Aventura" className="h-11 w-11 object-cover rounded-full" style={{ border: `2px solid ${GREEN}` }} />
           <div>
             <p className="font-display font-bold text-base leading-none" style={{ color: GREEN }}>Tierra Aventura</p>
-            <p className="text-xs tracking-widest uppercase mt-0.5" style={{ color: TERRA }}>Agencia de Viajes</p>
           </div>
         </div>
 
