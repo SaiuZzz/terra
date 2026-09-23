@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import logoImg from '@/imports/WhatsApp_Image_2026-09-21_at_10.38.10_PM.jpeg'
+import logoImg from '@/imports/image-3.png'
 import beachCircle from '@/imports/image.png'
-import kakiwinCircle from '@/imports/image-1.png'
+import kakiwinCircle from '@/imports/image-4.png'
 import mascotImg from '@/imports/image-2.png'
 
 const GREEN = '#2d5a27'
@@ -25,7 +25,7 @@ interface Trail {
 const trails: Trail[] = [
   {
     id: 1,
-    name: 'Sendero Costero',
+    name: 'Ruta Costera',
     tag: 'Ruta del Mar',
     difficulty: 'Moderado',
     distance: '12 km · 4 h',
@@ -242,7 +242,7 @@ export default function App() {
         style={{ background: 'rgba(244,239,234,0.93)', backdropFilter: 'blur(8px)', borderBottom: '1px solid #ddd4c8' }}
       >
         <div className="flex items-center gap-3">
-          <img src={logoImg} alt="Tierra Aventura" className="h-11 object-contain" />
+          <img src={logoImg} alt="Tierra Aventura" className="h-11 w-11 object-cover rounded-full" style={{ border: `2px solid ${GREEN}` }} />
           <div>
             <p className="font-display font-bold text-base leading-none" style={{ color: GREEN }}>Tierra Aventura</p>
             <p className="text-xs tracking-widest uppercase mt-0.5" style={{ color: TERRA }}>Agencia de Viajes</p>
@@ -343,10 +343,10 @@ export default function App() {
           <div>
             <p className="text-xs uppercase tracking-widest font-semibold mb-3" style={{ color: '#e8a427' }}>Quiénes somos</p>
             <h2 className="font-display font-bold text-white mb-4" style={{ fontSize: 'clamp(1.8rem,4vw,2.6rem)' }}>
-              Pasión por el sendero desde 2009
+              Pasión por el sendero
             </h2>
             <p className="text-sm leading-loose mb-6" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Somos una agencia especializada en ecoturismo y senderismo. Diseñamos cada ruta con respeto por el entorno natural y alianzas con comunidades locales. Nuestros guías certificados llevan años explorando los paisajes más auténticos del país.
+              Somos una agencia especializada en ecoturismo y senderismo. Diseñamos cada ruta con respeto por el entorno natural y alianzas con comunidades locales. Nuestros guías certificados exploran los paisajes más auténticos del país.
             </p>
             <div className="flex gap-8">
               {[['120+', 'Rutas'], ['24', 'Guías'], ['8.400', 'Viajeros']].map(([v, l]) => (
@@ -396,7 +396,7 @@ export default function App() {
       <footer className="py-8 px-6 md:px-20" style={{ background: BLACK }}>
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <img src={logoImg} alt="Tierra Aventura" className="h-9 object-contain" style={{ filter: 'brightness(10)' }} />
+            <img src={logoImg} alt="Tierra Aventura" className="h-9 w-9 object-cover rounded-full" style={{ border: '1.5px solid rgba(255,255,255,0.3)' }} />
             <p className="font-display font-bold text-white text-sm">Tierra Aventura</p>
           </div>
           <p className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>© 2026 Tierra Aventura · Todos los derechos reservados</p>
