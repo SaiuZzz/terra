@@ -2,7 +2,7 @@ import { useState } from 'react'
 import logoImg from '@/imports/image-3.png'
 import beachCircle from '@/imports/image.png'
 import kakiwinCircle from '@/imports/image-4.png'
-import mascotImg from '@/imports/image-2.png'
+import mascotImg from '@/imports/assistant.png'
 
 const GREEN = '#2d5a27'
 const TERRA = '#c85a32'
@@ -166,7 +166,7 @@ function ChatWidget() {
       {open && (
         <div
           className="rounded-2xl shadow-2xl flex flex-col overflow-hidden"
-          style={{ width: 310, height: 400, background: CREAM, border: `2px solid ${GREEN}` }}
+          style={{ width: 310, height: 400, maxHeight: 'calc(100dvh - 190px)', background: CREAM }}
         >
           <div className="flex items-center gap-3 px-4 py-3" style={{ background: GREEN }}>
             <img src={mascotImg} alt="Asistente" className="w-9 h-9 object-contain" />
@@ -210,11 +210,10 @@ function ChatWidget() {
 
       <button
         onClick={() => setOpen((o) => !o)}
-        className="rounded-full overflow-hidden shadow-xl transition-transform hover:scale-105 active:scale-95"
-        style={{ width: 84, height: 84, border: `3px solid ${GREEN}`, background: CREAM }}
+        className="block w-24 h-36 p-0 bg-transparent border-0 transition-transform hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c85a32]"
         aria-label="Chat de asistencia"
       >
-        <img src={mascotImg} alt="Asistente" className="w-full h-full object-contain" style={{ transform: 'scale(1.15)', transformOrigin: 'center 60%' }} />
+        <img src={mascotImg} alt="" className="w-full h-full object-contain" />
       </button>
     </div>
   )
