@@ -67,18 +67,18 @@ function TrailModal({ trail, onClose }: { trail: Trail; onClose: () => void }) {
         style={{ background: CREAM, maxHeight: '88vh', overflowY: 'auto' }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative h-48 overflow-hidden">
-          <img src={trail.photo} alt={trail.name} className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%,transparent 60%)' }} />
+        <div className="relative flex flex-col items-center pt-7 px-6 text-center">
           <button
             onClick={onClose}
             className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-white text-lg"
-            style={{ background: 'rgba(0,0,0,0.4)' }}
+            style={{ background: GREEN }}
+            aria-label="Cerrar detalles de la ruta"
           >×</button>
-          <div className="absolute bottom-4 left-5 text-white">
-            <p className="text-xs uppercase tracking-widest opacity-70 mb-1">{trail.tag}</p>
-            <h3 className="font-display font-bold text-2xl leading-none">{trail.name}</h3>
+          <div className="w-36 h-36 rounded-full overflow-hidden ring-4 ring-[#2d5a27]" style={{ background: CREAM }}>
+            <img src={trail.photo} alt={trail.name} className={`w-full h-full object-contain ${trail.id === 2 ? 'scale-[1.2]' : ''}`} />
           </div>
+          <p className="text-xs uppercase tracking-widest mt-5 mb-1" style={{ color: TERRA }}>{trail.tag}</p>
+          <h3 className="font-display font-bold text-2xl leading-none" style={{ color: GREEN }}>{trail.name}</h3>
         </div>
 
         <div className="p-6">
@@ -267,25 +267,20 @@ export default function App() {
               <button
                 key={trail.id}
                 onClick={() => setActiveTrail(trail)}
-                className="group block w-full overflow-hidden rounded-2xl text-left shadow-[0_18px_50px_rgba(0,0,0,0.14)] transition-transform duration-300 hover:-translate-y-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c85a32]"
+                className="group flex w-full flex-col items-center overflow-hidden rounded-2xl text-center shadow-[0_18px_50px_rgba(0,0,0,0.14)] transition-transform duration-300 hover:-translate-y-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c85a32]"
                 style={{ background: CREAM }}
                 aria-label={`Ver ruta ${trail.name}`}
               >
-                <div className="relative h-56 sm:h-72 md:h-64 lg:h-80 overflow-hidden" style={{ background: '#171d18' }}>
-                  <img src={trail.photo} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  <span className="absolute top-5 left-5 rounded-full bg-[#f4efea] px-4 py-2 text-[11px] font-semibold uppercase tracking-widest" style={{ color: GREEN }}>
-                    {String(index + 1).padStart(2, '0')} / {trail.tag}
-                  </span>
+                <div className="flex w-full items-center justify-between gap-3 px-6 pt-6 text-[11px] font-semibold uppercase tracking-widest" style={{ color: GREEN }}>
+                  <span>{String(index + 1).padStart(2, '0')} / {trail.tag}</span>
+                  <span aria-hidden="true" className="h-px flex-1 bg-[#2d5a27]/25" />
                 </div>
-                <div className="flex items-end justify-between gap-3 px-5 py-6 sm:px-7 sm:py-7">
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.2em] font-semibold mb-2" style={{ color: TERRA }}>{trail.difficulty} · {trail.distance}</p>
-                    <h2 className="font-display font-bold text-2xl sm:text-3xl leading-tight" style={{ color: GREEN }}>{trail.name}</h2>
-                    <p className="text-sm mt-2" style={{ color: '#595650' }}>Descubre el recorrido y sus detalles</p>
-                  </div>
-                  <span className="shrink-0 flex items-center justify-center w-11 h-11 rounded-full text-white text-xl transition-colors group-hover:bg-[#c85a32]" style={{ background: GREEN }} aria-hidden="true">↗</span>
+                <div className="mt-7 mb-6 w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden ring-4 ring-[#2d5a27] shadow-[0_12px_28px_rgba(0,0,0,0.18)]" style={{ background: CREAM }}>
+                  <img src={trail.photo} alt="" className={`w-full h-full object-contain transition-transform duration-500 ${trail.id === 2 ? 'scale-[1.2] group-hover:scale-[1.25]' : 'group-hover:scale-105'}`} />
                 </div>
+                <p className="text-[11px] uppercase tracking-[0.2em] font-semibold mb-2" style={{ color: TERRA }}>{trail.difficulty} · {trail.distance}</p>
+                <h2 className="font-display font-bold text-2xl sm:text-3xl leading-tight" style={{ color: GREEN }}>{trail.name}</h2>
+                <span className="inline-flex items-center gap-2 mt-4 mb-7 text-sm font-semibold" style={{ color: GREEN }}>Conoce la ruta <span aria-hidden="true">↗</span></span>
               </button>
             ))}
           </div>
