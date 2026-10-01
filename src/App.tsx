@@ -207,7 +207,7 @@ export default function App() {
         style={{ background: 'rgba(244,239,234,0.93)', backdropFilter: 'blur(8px)', borderBottom: '1px solid #ddd4c8' }}
       >
         <div className="flex items-center gap-3">
-          <img src={logoImg} alt="Terra" className="h-11 w-11 object-cover rounded-full" style={{ border: `2px solid ${GREEN}` }} />
+          <img src={logoImg} alt="Terra" className="h-12 w-12 shrink-0 rounded-full object-contain p-1.5" style={{ border: `2px solid ${GREEN}`, background: CREAM }} />
           <div>
             <p className="font-display font-bold text-base leading-none" style={{ color: GREEN }}>Terra</p>
           </div>
@@ -351,7 +351,7 @@ export default function App() {
       <footer className="py-8 px-6 md:px-20" style={{ background: BLACK }}>
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <img src={logoImg} alt="Terra" className="h-9 w-9 object-cover rounded-full" style={{ border: '1.5px solid rgba(255,255,255,0.3)' }} />
+            <img src={logoImg} alt="Terra" className="h-11 w-11 shrink-0 rounded-full object-contain p-1" style={{ border: '1.5px solid rgba(255,255,255,0.3)', background: CREAM }} />
             <p className="font-display font-bold text-white text-sm">Terra</p>
           </div>
           <p className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>© 2026 Terra · Todos los derechos reservados</p>
