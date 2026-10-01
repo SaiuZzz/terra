@@ -18,7 +18,6 @@ interface Trail {
   duration: string
   description: string
   highlights: string[]
-  circle: 'beach' | 'kakiwin' | 'volcano' | 'valley'
   photo: string
 }
 
@@ -33,8 +32,7 @@ const trails: Trail[] = [
     description:
       'Costa virgen entre palmeras y acantilados. Playas privadas, snorkel en arrecife y atardeceres que no olvidarás.',
     highlights: ['Playa privada', 'Snorkel', 'Mirador del faro', 'Puesta de sol'],
-    circle: 'beach',
-    photo: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=500&fit=crop&auto=format',
+    photo: beachCircle,
   },
   {
     id: 2,
@@ -46,8 +44,7 @@ const trails: Trail[] = [
     description:
       'Antiguos caminos de exploradores a través de bosque tropical. Cascadas ocultas, aves exóticas y flora endémica.',
     highlights: ['Cascada escondida', 'Avistamiento de aves', 'Flora endémica', 'Campamento'],
-    circle: 'kakiwin',
-    photo: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=500&fit=crop&auto=format',
+    photo: kakiwinCircle,
   },
 ]
 
@@ -56,42 +53,6 @@ const diffColor: Record<string, string> = {
   Moderado: '#b07a20',
   Difícil: '#c85a32',
   Extremo: '#7a1a1a',
-}
-
-function CircleIcon({ type }: { type: Trail['circle'] }) {
-  if (type === 'beach')
-    return <img src={beachCircle} alt="Sendero Costero" className="w-full h-full object-cover" />
-  if (type === 'kakiwin')
-    return (
-      <div className="w-full h-full flex items-center justify-center overflow-hidden" style={{ background: '#111' }}>
-        <img src={kakiwinCircle} alt="Ruta Kakiwin" style={{ width: '130%', height: '130%', objectFit: 'cover', objectPosition: 'center' }} />
-      </div>
-    )
-  if (type === 'volcano')
-    return (
-      <svg viewBox="0 0 200 200" className="w-full h-full" style={{ background: 'linear-gradient(160deg,#1a0800,#3d1500,#7a2a0a)' }}>
-        <circle cx="100" cy="100" r="95" fill="none" stroke={TERRA} strokeWidth="5" />
-        <polygon points="100,28 148,138 52,138" fill="#2a0d00" />
-        <polygon points="100,28 118,72 82,72" fill="#6a1500" />
-        <ellipse cx="100" cy="30" rx="20" ry="11" fill="#e8921a" opacity="0.9" />
-        <path d="M52,138 Q76,118 100,138 Q124,118 148,138 L162,168 H38Z" fill="#1a0800" />
-        <text x="100" y="183" textAnchor="middle" fill={CREAM} fontSize="10" fontFamily="Outfit,sans-serif" fontWeight="600" letterSpacing="3">VOLCÁN</text>
-      </svg>
-    )
-  return (
-    <svg viewBox="0 0 200 200" className="w-full h-full" style={{ background: 'linear-gradient(160deg,#6aad4a,#2d5a27,#c8a027)' }}>
-      <circle cx="100" cy="100" r="95" fill="none" stroke={GREEN} strokeWidth="5" />
-      <ellipse cx="100" cy="128" rx="78" ry="46" fill={GREEN} />
-      <circle cx="58" cy="100" r="22" fill="#3d7a28" />
-      <circle cx="144" cy="95" r="18" fill="#3d7a28" />
-      <ellipse cx="100" cy="96" rx="28" ry="28" fill="#3d7a28" />
-      <circle cx="84" cy="78" r="14" fill="#4a8f30" />
-      <circle cx="116" cy="76" r="16" fill="#5aa838" />
-      <circle cx="100" cy="70" r="18" fill="#6ac040" />
-      <circle cx="100" cy="54" r="16" fill="#e8a427" opacity="0.9" />
-      <text x="100" y="183" textAnchor="middle" fill={CREAM} fontSize="10" fontFamily="Outfit,sans-serif" fontWeight="600" letterSpacing="2">VALLE DORADO</text>
-    </svg>
-  )
 }
 
 function TrailModal({ trail, onClose }: { trail: Trail; onClose: () => void }) {
@@ -275,63 +236,55 @@ export default function App() {
       )}
 
       {/* HERO */}
-      <section id="inicio" className="py-24 px-6 md:px-20 text-center" style={{ background: GREEN }}>
-        <h1
-          className="font-display font-bold text-white leading-tight mx-auto mb-5"
-          style={{ fontSize: 'clamp(2.4rem,6vw,4rem)', maxWidth: 640 }}
-        >
-          Descubre rutas de sendero únicas
-        </h1>
-        <p className="text-sm max-w-sm mx-auto mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
-          Guías expertos, paisajes auténticos y experiencias que transforman.
-        </p>
-        <a
-          href="#rutas"
-          className="inline-block px-8 py-3 rounded-full font-semibold text-white"
-          style={{ background: TERRA }}
-        >
-          Ver Rutas
-        </a>
+      <section id="inicio" className="px-6 md:px-12 lg:px-20 pt-16 md:pt-20 pb-28 md:pb-36" style={{ background: GREEN }}>
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div>
+            <p className="text-xs uppercase tracking-[0.28em] font-semibold mb-4" style={{ color: '#e9bd9d' }}>Senderos para volver a sentir</p>
+            <h1 className="font-display font-bold text-white leading-[0.9] tracking-tight" style={{ fontSize: 'clamp(5rem, 13vw, 11rem)' }}>Terra<span style={{ color: TERRA }}>.</span></h1>
+            <p className="font-display italic text-2xl md:text-4xl mt-5" style={{ color: CREAM }}>El camino empieza aquí.</p>
+          </div>
+          <div className="md:max-w-xs md:pb-3">
+            <p className="text-sm md:text-base leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.78)' }}>
+              Dos rutas, infinitas formas de conectar con la naturaleza. Elige tu próxima aventura.
+            </p>
+            <a href="#rutas" className="inline-flex items-center gap-3 px-6 py-3 rounded-full font-semibold text-white transition-transform hover:-translate-y-1" style={{ background: TERRA }}>
+              Explorar rutas <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* RUTAS */}
-      <section id="rutas" className="py-20 px-6 md:px-20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="text-xs uppercase tracking-widest font-semibold mb-3" style={{ color: TERRA }}>Expediciones</p>
-            <h2 className="font-display font-bold" style={{ fontSize: 'clamp(2rem,5vw,3rem)', color: GREEN }}>
-              Rutas de Sendero
-            </h2>
-            <p className="mt-3 text-sm max-w-md mx-auto leading-relaxed" style={{ color: '#555' }}>
-              Haz clic en cada círculo para conocer los detalles de la ruta y reservar tu lugar.
-            </p>
+      <section id="rutas" className="relative z-10 -mt-16 md:-mt-20 px-6 md:px-12 lg:px-20 pb-20 md:pb-28 scroll-mt-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-4 mb-6 text-white">
+            <span className="text-xs font-semibold uppercase tracking-[0.24em]">Elige tu ruta</span>
+            <span className="h-px flex-1 bg-white/40" />
+            <span className="text-xs tracking-widest">01 — 02</span>
           </div>
-
-          <div className="flex flex-wrap justify-center gap-10 md:gap-14">
-            {trails.map((trail) => (
+          <div className="grid md:grid-cols-2 gap-5 md:gap-7">
+            {trails.map((trail, index) => (
               <button
                 key={trail.id}
                 onClick={() => setActiveTrail(trail)}
-                className="flex flex-col items-center gap-4 group"
+                className="group block w-full overflow-hidden rounded-2xl text-left shadow-[0_18px_50px_rgba(0,0,0,0.14)] transition-transform duration-300 hover:-translate-y-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c85a32]"
+                style={{ background: CREAM }}
                 aria-label={`Ver ruta ${trail.name}`}
               >
-                <div
-                  className="rounded-full overflow-hidden transition-all duration-300 group-hover:scale-105"
-                  style={{
-                    width: 190,
-                    height: 190,
-                    boxShadow: `0 0 0 4px ${GREEN}, 0 6px 20px rgba(0,0,0,0.15)`,
-                  }}
-                >
-                  <CircleIcon type={trail.circle} />
+                <div className="relative h-56 sm:h-72 md:h-64 lg:h-80 overflow-hidden" style={{ background: '#171d18' }}>
+                  <img src={trail.photo} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <span className="absolute top-5 left-5 rounded-full bg-[#f4efea] px-4 py-2 text-[11px] font-semibold uppercase tracking-widest" style={{ color: GREEN }}>
+                    {String(index + 1).padStart(2, '0')} / {trail.tag}
+                  </span>
                 </div>
-                <div className="text-center">
-                  <p className="font-display font-semibold text-base leading-tight" style={{ color: GREEN }}>{trail.name}</p>
-                  <p className="text-xs mt-0.5" style={{ color: '#888' }}>{trail.tag}</p>
-                  <span
-                    className="inline-block mt-2 px-3 py-0.5 rounded-full text-xs font-semibold text-white"
-                    style={{ background: diffColor[trail.difficulty] }}
-                  >{trail.difficulty}</span>
+                <div className="flex items-end justify-between gap-3 px-5 py-6 sm:px-7 sm:py-7">
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.2em] font-semibold mb-2" style={{ color: TERRA }}>{trail.difficulty} · {trail.distance}</p>
+                    <h2 className="font-display font-bold text-2xl sm:text-3xl leading-tight" style={{ color: GREEN }}>{trail.name}</h2>
+                    <p className="text-sm mt-2" style={{ color: '#595650' }}>Descubre el recorrido y sus detalles</p>
+                  </div>
+                  <span className="shrink-0 flex items-center justify-center w-11 h-11 rounded-full text-white text-xl transition-colors group-hover:bg-[#c85a32]" style={{ background: GREEN }} aria-hidden="true">↗</span>
                 </div>
               </button>
             ))}
@@ -351,7 +304,7 @@ export default function App() {
               Somos una agencia especializada en ecoturismo y senderismo. Diseñamos cada ruta con respeto por el entorno natural y alianzas con comunidades locales. Nuestros guías certificados exploran los paisajes más auténticos del país.
             </p>
             <div className="flex gap-8">
-              {[['120+', 'Rutas'], ['24', 'Guías'], ['8.400', 'Viajeros']].map(([v, l]) => (
+              {[['2', 'Rutas'], ['24', 'Guías'], ['8.400', 'Viajeros']].map(([v, l]) => (
                 <div key={l}>
                   <p className="font-display font-bold text-3xl text-white">{v}</p>
                   <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.55)' }}>{l}</p>
