@@ -264,7 +264,7 @@ export default function App() {
       <section id="inicio" className="px-6 md:px-12 lg:px-20 pt-16 md:pt-20 pb-28 md:pb-36" style={{ background: GREEN }}>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
-            <p className="text-xs uppercase tracking-[0.28em] font-semibold mb-4" style={{ color: '#e9bd9d' }}>Senderos para volver a sentir</p>
+            <p className="max-w-md text-sm tracking-wide font-semibold mb-4" style={{ color: '#e9bd9d' }}>Regálate un momento de paz. Descubre lo que nuestro sendero tiene preparado para ti.</p>
             <h1 className="font-display font-bold text-white leading-[0.9] tracking-tight" style={{ fontSize: 'clamp(5rem, 13vw, 11rem)' }}>Terra<span style={{ color: TERRA }}>.</span></h1>
             <p className="font-display italic text-2xl md:text-4xl mt-5" style={{ color: CREAM }}>El camino empieza aquí.</p>
           </div>
@@ -272,8 +272,8 @@ export default function App() {
             <p className="text-sm md:text-base leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.78)' }}>
               Dos rutas, infinitas formas de conectar con la naturaleza. Elige tu próxima aventura.
             </p>
-            <a href="#rutas" className="inline-flex items-center gap-3 px-6 py-3 rounded-full font-semibold text-white transition-transform hover:-translate-y-1" style={{ background: TERRA }}>
-              Explorar rutas <span aria-hidden="true">↗</span>
+            <a href="#rutas" className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm text-center font-semibold text-white transition-transform hover:-translate-y-1" style={{ background: TERRA }}>
+              ¡VAMOS A UNA NIKOAVENTURA!
             </a>
           </div>
         </div>
