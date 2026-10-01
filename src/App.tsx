@@ -264,7 +264,7 @@ export default function App() {
       <section id="inicio" className="px-6 md:px-12 lg:px-20 pt-16 md:pt-20 pb-28 md:pb-36" style={{ background: GREEN }}>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
-            <p className="max-w-md text-sm tracking-wide font-semibold mb-4" style={{ color: '#e9bd9d' }}>Regálate un momento de paz. Descubre lo que nuestro sendero tiene preparado para ti.</p>
+            <p className="max-w-md text-sm tracking-wide font-semibold mb-4" style={{ color: '#e9bd9d' }}>Regálate un momento de paz. Descubre lo que nuestros senderos tienen preparado para ti.</p>
             <h1 className="font-display font-bold text-white leading-[0.9] tracking-tight" style={{ fontSize: 'clamp(5rem, 13vw, 11rem)' }}>Terra<span style={{ color: TERRA }}>.</span></h1>
             <p className="font-display italic text-2xl md:text-4xl mt-5" style={{ color: CREAM }}>El camino empieza aquí.</p>
           </div>
