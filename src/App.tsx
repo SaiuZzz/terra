@@ -55,6 +55,32 @@ const diffColor: Record<string, string> = {
   Extremo: '#7a1a1a',
 }
 
+function SocialIcon({ name }: { name: 'Instagram' | 'Facebook' | 'TikTok' | 'YouTube' }) {
+  if (name === 'Instagram') return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.7" cy="6.4" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  )
+  if (name === 'Facebook') return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7" aria-hidden="true">
+      <path d="M14.3 21v-8h2.5l.4-3.1h-2.9V8c0-.9.3-1.5 1.5-1.5h1.6V3.7a21 21 0 0 0-2.3-.1c-2.4 0-4.1 1.5-4.1 4.2v2.1H8.5V13H11v8h3.3Z" />
+    </svg>
+  )
+  if (name === 'TikTok') return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7" aria-hidden="true">
+      <path d="M16.2 2c.2 2.2 1.4 3.5 3.8 3.7v3.1a8.4 8.4 0 0 1-3.8-1.1v7.2a6 6 0 1 1-5.4-6v3.2a2.8 2.8 0 1 0 2.2 2.8V2h3.2Z" />
+    </svg>
+  )
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" aria-hidden="true">
+      <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" strokeWidth="1.8" />
+      <path d="m10 8.7 5.4 3.3-5.4 3.3V8.7Z" fill="currentColor" />
+    </svg>
+  )
+}
+
 function TrailModal({ trail, onClose }: { trail: Trail; onClose: () => void }) {
   return (
     <div
@@ -289,30 +315,35 @@ export default function App() {
 
       {/* NOSOTROS */}
       <section id="nosotros" style={{ background: GREEN }}>
-        <div className="max-w-4xl mx-auto px-6 md:px-20 py-16 grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20 py-20 md:py-24 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
-            <p className="text-xs uppercase tracking-widest font-semibold mb-3" style={{ color: '#e8a427' }}>Quiénes somos</p>
-            <h2 className="font-display font-bold text-white mb-4" style={{ fontSize: 'clamp(1.8rem,4vw,2.6rem)' }}>
-              Pasión por el sendero
+            <p className="text-xs uppercase tracking-[0.25em] font-semibold mb-5" style={{ color: '#e9bd9d' }}>Quiénes somos</p>
+            <h2 className="font-display font-bold text-white leading-tight mb-6" style={{ fontSize: 'clamp(2.5rem,5vw,4.5rem)' }}>
+              Cada ruta tiene <em className="font-normal" style={{ color: '#e9bd9d' }}>su historia.</em>
             </h2>
-            <p className="text-sm leading-loose mb-6" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Somos una agencia especializada en ecoturismo y senderismo. Diseñamos cada ruta con respeto por el entorno natural y alianzas con comunidades locales. Nuestros guías certificados exploran los paisajes más auténticos del país.
+            <p className="text-base leading-relaxed max-w-md" style={{ color: 'rgba(255,255,255,0.8)' }}>
+              En Terra nos mueve descubrir los caminos que conectan con la naturaleza. Desde la brisa de la Ruta Costera hasta los senderos de Kakiwin, creamos recorridos para caminar sin prisa, explorar con respeto y llevarte historias que permanecen.
             </p>
-            <div className="flex gap-8">
-              {[['2', 'Rutas'], ['24', 'Guías'], ['8.400', 'Viajeros']].map(([v, l]) => (
-                <div key={l}>
-                  <p className="font-display font-bold text-3xl text-white">{v}</p>
-                  <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.55)' }}>{l}</p>
+            <div className="mt-9 flex items-center gap-4">
+              <span className="h-px w-12" style={{ background: TERRA }} />
+              <span className="text-sm font-medium" style={{ color: CREAM }}>La aventura se vive paso a paso.</span>
+            </div>
+          </div>
+          <div className="rounded-3xl p-6 sm:p-8 shadow-[0_22px_50px_rgba(0,0,0,0.14)]" style={{ background: CREAM }}>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-3" style={{ color: TERRA }}>Más allá del sendero</p>
+            <h3 className="font-display font-bold text-2xl sm:text-3xl mb-3" style={{ color: GREEN }}>Terra en redes</h3>
+            <p className="text-sm leading-relaxed mb-7" style={{ color: '#595650' }}>Un espacio para compartir paisajes, caminos y momentos de cada aventura.</p>
+            <div className="grid grid-cols-2 gap-3">
+              {(['Instagram', 'Facebook', 'TikTok', 'YouTube'] as const).map((name) => (
+                <div key={name} className="flex flex-col items-center justify-center gap-3 rounded-2xl py-7 px-3" style={{ background: '#eae3da', color: GREEN }}>
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full text-white" style={{ background: name === 'Instagram' || name === 'YouTube' ? TERRA : GREEN }}>
+                    <SocialIcon name={name} />
+                  </span>
+                  <span className="text-sm font-semibold">{name}</span>
                 </div>
               ))}
             </div>
           </div>
-          <img
-            src="https://images.unsplash.com/photo-1527301460062-0b9f5a0b96d5?w=700&h=500&fit=crop&auto=format"
-            alt="Guías de Terra"
-            className="w-full rounded-2xl object-cover"
-            style={{ height: 340 }}
-          />
         </div>
       </section>
 
