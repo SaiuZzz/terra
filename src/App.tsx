@@ -1,8 +1,8 @@
 import { useState } from 'react'
-const logoImg = '/image-3.png'
-const beachCircle = '/image.png'
-const kakiwinCircle = '/image-4.png'
-const mascotImg = '/assistant.png'
+import logoImg from './imports/image-3.png'
+import beachCircle from './imports/image.png'
+import kakiwinCircle from './imports/image-4.png'
+import mascotImg from './imports/assistant.png'
 
 const GREEN = '#2d5a27'
 const TERRA = '#c85a32'
